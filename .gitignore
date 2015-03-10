@@ -1,0 +1,21 @@
+## Appledoc
+
+doc
+
+## OS X
+
+.DS_Store
+
+## Other
+
+.pt
+Examples/ContentfulDeliveryAPI.zip
+Examples/UFO.zip
+compile_commands.json
+.gutter.json
+
+## Xcode
+
+*.xccheckout
+xcuserdata
+.idea
