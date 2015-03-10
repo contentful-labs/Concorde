@@ -14,17 +14,40 @@
 #import <Cocoa/Cocoa.h>
 #endif
 
-typedef NS_ENUM(NSInteger, CCDecodingStatus) {
+/** JPEG decoding status */
+typedef NS_ENUM(NSInteger, CCDecodingStatus){
+    /** Decoding failed */
     CCDecodingStatusFailed,
+    /** Decoding completely finished */
     CCDecodingStatusFinished,
+    /** Another decoding pass exists */
     CCDecodingStatusNextIteration,
 };
 
+/** Decoder for JPEG images */
 @interface CCBufferedImageDecoder : NSObject
 
+/**
+ *  Decompress the next pass in buffered mode.
+ *
+ *  @return Status of the decoding process.
+ */
 -(CCDecodingStatus)decompress;
+
+/**
+ *  Initialize decoder with image data.
+ *
+ *  @param data The image data to decode.
+ *
+ *  @return An initialized decoder instance.
+ */
 -(instancetype)initWithData:(NSData*)data;
 
+/**
+ *  Convert the result RGB data to an image instance.
+ *
+ *  @return An image instance for use in Cocoa.
+ */
 #if TARGET_OS_IPHONE
 -(UIImage*)toImage;
 #else
