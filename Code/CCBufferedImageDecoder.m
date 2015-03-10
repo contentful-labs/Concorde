@@ -166,7 +166,11 @@
     jpeg_destroy_decompress(&self->info);
 }
 
+#if TARGET_OS_IPHONE
 -(UIImage*)toImage {
+#else
+-(NSImage*)toImage {
+#endif
     if (!self->info.output_scanline) {
         return nil;
     }
@@ -225,13 +229,21 @@
         free(pixels);
     }
 
+#if TARGET_OS_IPHONE
     UIImage *image = nil;
+#else
+    NSImage *image = nil;
+#endif
 
     if (context) {
         CGContextDrawImage(context, CGRectMake(0.0f, 0.0f, width, height), iref);
         CGImageRef imageRef = CGBitmapContextCreateImage(context);
 
+#if TARGET_OS_IPHONE
         image = [UIImage imageWithCGImage:imageRef];
+#else
+        image = [[NSImage alloc] initWithCGImage:imageRef size:NSMakeSize(width, height)];
+#endif
 
         CGImageRelease(imageRef);
         CGContextRelease(context);
