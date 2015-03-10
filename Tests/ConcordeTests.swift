@@ -7,24 +7,63 @@
 //
 
 import Concorde
-import XCTest
+import Nimble
+import Nimble_Snapshots
+import Quick
 
-class ConcordeTests: XCTestCase {
-    var nonProgressiveData = NSData()
+class ConcordeTests: QuickSpec {
+    override func spec() {
+        var nonProgressiveData = NSData()
+        var progressiveData = NSData()
 
-    override func setUp() {
-        let path = NSBundle(forClass: self.dynamicType).pathForResource("non-progressive", ofType: "jpg")
-        nonProgressiveData = NSData(contentsOfFile: path!)!
-    }
+        beforeEach {
+            var path = NSBundle(forClass: self.dynamicType).pathForResource("non-progressive", ofType: "jpg")
+            nonProgressiveData = NSData(contentsOfFile: path!)!
 
-    func testNonProgressive() {
-        let decoder = CCBufferedImageDecoder(data: nonProgressiveData)
-
-        for i in 0...5 {
-            decoder.decompress()
+            path = NSBundle(forClass: self.dynamicType).pathForResource("progressive", ofType: "jpg")
+            progressiveData = NSData(contentsOfFile: path!)!
         }
 
-        let data = UIImagePNGRepresentation(decoder.toImage())
-        data.writeToFile("output.png", atomically: true)
+        it("can decode non-progressive JPEGs") {
+            let decoder = CCBufferedImageDecoder(data: nonProgressiveData)
+            decoder.decompress()
+
+            let view = UIImageView(image: decoder.toImage())
+            expect(view).to(haveValidSnapshot())
+        }
+
+        it("can decode progressive JPEGs") {
+            let decoder = CCBufferedImageDecoder(data: progressiveData)
+            decoder.decompress()
+
+            let view = UIImageView(image: decoder.toImage())
+            expect(view).to(haveValidSnapshot())
+        }
+
+        it("can decode partial progressive JPEGs") {
+            let partialData = progressiveData.subdataWithRange(NSMakeRange(0, 7000))
+            let decoder = CCBufferedImageDecoder(data: partialData)
+            decoder.decompress()
+
+            let view = UIImageView(image: decoder.toImage())
+            expect(view).to(haveValidSnapshot())
+        }
+
+        it("is resilient against calling decode() many times") {
+            let decoder = CCBufferedImageDecoder(data: nonProgressiveData)
+
+            for i in 0...5 {
+                decoder.decompress()
+            }
+
+            let view = UIImageView(image: decoder.toImage())
+            expect(view).to(haveValidSnapshot())
+        }
+
+        it("is resilient against not calling decode() at all") {
+            let decoder = CCBufferedImageDecoder(data: nonProgressiveData)
+
+            expect(decoder.toImage()).to(beNil())
+        }
     }
 }

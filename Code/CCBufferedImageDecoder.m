@@ -167,6 +167,10 @@
 }
 
 -(UIImage*)toImage {
+    if (!self->info.output_scanline) {
+        return nil;
+    }
+
     CGFloat width = self->info.output_width;
     CGFloat height = self->info.output_height;
 

@@ -15,6 +15,8 @@
 		A1691EE31AAF034E00AADD22 /* libturbojpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1691EE21AAF034E00AADD22 /* libturbojpeg.a */; };
 		A1691EE91AAF21EF00AADD22 /* non-progressive.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1691EE51AAF206B00AADD22 /* non-progressive.jpg */; };
 		A1691EEA1AAF21F100AADD22 /* progressive.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1691EE61AAF206B00AADD22 /* progressive.jpg */; };
+		A1691EEC1AAF554500AADD22 /* ReferenceImages in Resources */ = {isa = PBXBuildFile; fileRef = A1691EEB1AAF554500AADD22 /* ReferenceImages */; };
+		D5AD8EDE87356F39B0D8349D /* Pods_ConcordeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD1905452D3DF48A0334F20 /* Pods_ConcordeTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AD1905452D3DF48A0334F20 /* Pods_ConcordeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConcordeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		347B4509BA485E5DA43F0FD1 /* Pods-ConcordeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcordeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConcordeTests/Pods-ConcordeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1441E2F1AADD59100973761 /* Concorde.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Concorde.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1441E331AADD59100973761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1441E341AADD59100973761 /* Concorde.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Concorde.h; sourceTree = "<group>"; };
@@ -39,6 +43,8 @@
 		A1691EE21AAF034E00AADD22 /* libturbojpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libturbojpeg.a; path = "vendor/libjpeg-turbo/lib/libturbojpeg.a"; sourceTree = "<group>"; };
 		A1691EE51AAF206B00AADD22 /* non-progressive.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "non-progressive.jpg"; sourceTree = "<group>"; };
 		A1691EE61AAF206B00AADD22 /* progressive.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = progressive.jpg; sourceTree = "<group>"; };
+		A1691EEB1AAF554500AADD22 /* ReferenceImages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ReferenceImages; sourceTree = "<group>"; };
+		F427F11F3590B252FFC22D6C /* Pods-ConcordeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcordeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConcordeTests/Pods-ConcordeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,17 +61,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1441E3B1AADD59100973761 /* Concorde.framework in Frameworks */,
+				D5AD8EDE87356F39B0D8349D /* Pods_ConcordeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D4611DF3DC13B8615C5E2C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				347B4509BA485E5DA43F0FD1 /* Pods-ConcordeTests.debug.xcconfig */,
+				F427F11F3590B252FFC22D6C /* Pods-ConcordeTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A1441E251AADD59100973761 = {
 			isa = PBXGroup;
 			children = (
 				A1441E311AADD59100973761 /* Code */,
 				A1691EE41AAF035700AADD22 /* Frameworks */,
+				7D4611DF3DC13B8615C5E2C2 /* Pods */,
 				A1441E301AADD59100973761 /* Products */,
 				A1441E3E1AADD59100973761 /* Tests */,
 			);
@@ -94,6 +111,7 @@
 		A1441E3E1AADD59100973761 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A1691EEB1AAF554500AADD22 /* ReferenceImages */,
 				A1441E411AADD59100973761 /* ConcordeTests.swift */,
 				A1441E401AADD59100973761 /* Info.plist */,
 				A1691EE51AAF206B00AADD22 /* non-progressive.jpg */,
@@ -106,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				A1691EE21AAF034E00AADD22 /* libturbojpeg.a */,
+				2AD1905452D3DF48A0334F20 /* Pods_ConcordeTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -147,9 +166,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1441E481AADD59100973761 /* Build configuration list for PBXNativeTarget "ConcordeTests" */;
 			buildPhases = (
+				724CE6E425B013781D6F5FA0 /* Check Pods Manifest.lock */,
 				A1441E361AADD59100973761 /* Sources */,
 				A1441E371AADD59100973761 /* Frameworks */,
 				A1441E381AADD59100973761 /* Resources */,
+				B01F6E58CE50380E3BD7E671 /* Embed Pods Frameworks */,
+				681C6D6065901B71223DCC14 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -208,12 +230,61 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1691EEC1AAF554500AADD22 /* ReferenceImages in Resources */,
 				A1691EE91AAF21EF00AADD22 /* non-progressive.jpg in Resources */,
 				A1691EEA1AAF21F100AADD22 /* progressive.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		681C6D6065901B71223DCC14 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConcordeTests/Pods-ConcordeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		724CE6E425B013781D6F5FA0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B01F6E58CE50380E3BD7E671 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConcordeTests/Pods-ConcordeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A1441E2A1AADD59100973761 /* Sources */ = {
@@ -378,6 +449,7 @@
 		};
 		A1441E491AADD59100973761 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 347B4509BA485E5DA43F0FD1 /* Pods-ConcordeTests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -395,6 +467,7 @@
 		};
 		A1441E4A1AADD59100973761 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F427F11F3590B252FFC22D6C /* Pods-ConcordeTests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
