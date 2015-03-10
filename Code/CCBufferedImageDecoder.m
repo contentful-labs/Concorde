@@ -24,7 +24,7 @@
 @implementation CCBufferedImageDecoder {
     struct jpeg_error_mgr jerr;
     struct jpeg_decompress_struct info;
-    JSAMPARRAY samples;
+    JSAMPROW samples;
 }
 
 #pragma mark -
@@ -84,7 +84,7 @@
     jpeg_calc_output_dimensions(&self->info);
 
     self.outputData = [NSMutableData dataWithLength:self->info.output_width * self->info.output_height * 4];
-    self->samples = (*self->info.mem->alloc_sarray)((j_common_ptr) &self->info, JPOOL_IMAGE, self->info.output_width * 4, 1);
+    self->samples = *(*self->info.mem->alloc_sarray)((j_common_ptr) &self->info, JPOOL_IMAGE, self->info.output_width * 4, 1);
 
     if (!jpeg_start_decompress(&self->info))
         return NO;
@@ -148,15 +148,14 @@
     while (self->info.output_scanline < self->info.output_height) {
         int destY = self->info.output_scanline;
 
-        if (jpeg_read_scanlines(&self->info, self->samples, 1) != 1)
+        if (jpeg_read_scanlines(&self->info, &self->samples, 1) != 1)
             return NO;
 
-        JSAMPARRAY buffer = self.outputData.mutableBytes + (destY * width * 4);
+        JSAMPROW buffer = self.outputData.mutableBytes + (destY * width * 4);
         for (int x = 0; x < width; ++x) {
             memcpy(buffer + (x * 4), samples + (x * 3), 3);
-            buffer[x * 4 + 3] = (JSAMPROW)0xFF;
+            buffer[x * 4 + 3] = (JSAMPLE)0xFF;
         }
-        //memcpy(buffer, samples, width * 3);
     }
 
     return YES;
