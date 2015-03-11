@@ -1,5 +1,7 @@
 # Concorde
 
+![](use.gif)
+
 This is a framework for downloading and decoding progressive JPEGs easily on iOS and OS X. It uses [libjpeg-turbo][1] as underlying JPEG implementation. We vendor version 1.4.0 of the static library from libjpeg-turbo's [official release][3] for convenience.
 
 ## Usage
