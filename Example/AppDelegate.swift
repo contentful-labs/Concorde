@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.makeKeyAndVisible()
 
         let nonProgressiveImageView = CCBufferedImageView(frame: self.window!.bounds)
-        nonProgressiveImageView.backgroundColor = UIColor.redColor()
         nonProgressiveImageView.frame.size.width /= 2
         self.window!.rootViewController!.view.addSubview(nonProgressiveImageView)
 
@@ -29,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         let progressiveImageView = CCBufferedImageView(frame: self.window!.bounds)
-        progressiveImageView.backgroundColor = UIColor.greenColor()
         progressiveImageView.frame.origin.x = nonProgressiveImageView.frame.maxX
         progressiveImageView.frame.size.width /= 2
         self.window!.rootViewController!.view.addSubview(progressiveImageView)

@@ -21,12 +21,15 @@ public class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
     /// Initialize a new image view with the given frame
     public override init(frame: CGRect) {
         super.init(frame: frame)
+
+        backgroundColor = UIColor.grayColor()
     }
 
     /// Initialize a new image view and start loading a JPEG from the given URL
     public init(URL: NSURL) {
         super.init()
 
+        backgroundColor = UIColor.grayColor()
         load(URL)
     }
 
