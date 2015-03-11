@@ -153,8 +153,13 @@ METHODDEF(void) my_error_exit (j_common_ptr cinfo) {
 }
 
 -(CCDecodingStatus)decompress {
-    if (self.done || setjmp(jerr.setjmp_buffer)) {
+    if (self.done) {
         return CCDecodingStatusFinished;
+    }
+
+    if (setjmp(jerr.setjmp_buffer)) {
+        jpeg_destroy_decompress(&self->info);
+        return CCDecodingStatusFailed;
     }
 
     int status;
