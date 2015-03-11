@@ -244,10 +244,6 @@ METHODDEF(void) my_error_exit (j_common_ptr cinfo) {
                                                  colorSpaceRef,
                                                  bitmapInfo);
 
-    if (!context) {
-        free(pixels);
-    }
-
 #if TARGET_OS_IPHONE
     UIImage *image = nil;
 #else
@@ -271,6 +267,7 @@ METHODDEF(void) my_error_exit (j_common_ptr cinfo) {
     CGColorSpaceRelease(colorSpaceRef);
     CGImageRelease(iref);
     CGDataProviderRelease(provider);
+    free(pixels);
 
     return image;
 }
