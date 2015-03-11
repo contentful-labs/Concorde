@@ -9,8 +9,13 @@
 import UIKit
 
 public class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
+    private weak var connection: NSURLConnection?
     private let defaultContentLength = 5 * 1024 * 1024
     private var data: NSMutableData?
+
+    deinit {
+        connection?.cancel()
+    }
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +32,7 @@ public class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
     }
 
     public func load(URL: NSURL) {
-        NSURLConnection(request: NSURLRequest(URL: URL), delegate: self)
+        connection = NSURLConnection(request: NSURLRequest(URL: URL), delegate: self)
     }
 
     // MARK: NSURLConnectionDataDelegate
