@@ -71,5 +71,12 @@ class ConcordeTests: QuickSpec {
 
             expect(decoder.toImage()).to(beNil())
         }
+
+        it("is resilient against decoding nil") {
+            let decoder = CCBufferedImageDecoder(data: nil)
+            decoder.decompress()
+
+            expect(decoder.toImage()).to(beNil())
+        }
     }
 }

@@ -93,8 +93,12 @@ METHODDEF(void) my_error_exit (j_common_ptr cinfo) {
     if (self) {
         self.data = data;
 
-        [self initializeDecompression];
-        [self startDecompression];
+        if (self.data) {
+            [self initializeDecompression];
+            [self startDecompression];
+        } else {
+            self.done = YES;
+        }
     }
     return self;
 }
