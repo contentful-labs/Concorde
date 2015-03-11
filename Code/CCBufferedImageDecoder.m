@@ -313,34 +313,4 @@ METHODDEF(void) my_error_exit (j_common_ptr cinfo) {
     return image;
 }
 
-
-/* 
-FIXME: Add support for CYMK, similar to this snippet from WebKit source
-
-template <J_COLOR_SPACE colorSpace>
-void setPixel(ImageFrame& buffer, ImageFrame::PixelData* currentAddress, JSAMPARRAY samples, int column)
-{
-    JSAMPLE* jsample = *samples + column * (colorSpace == JCS_RGB ? 3 : 4);
-
-    switch (colorSpace) {
-        case JCS_RGB:
-            buffer.setRGBA(currentAddress, jsample[0], jsample[1], jsample[2], 0xFF);
-            break;
-        case JCS_CMYK:
-            // Source is 'Inverted CMYK', output is RGB.
-            // See: http://www.easyrgb.com/math.php?MATH=M12#text12
-            // Or: http://www.ilkeratalay.com/colorspacesfaq.php#rgb
-            // From CMYK to CMY:
-            // X =   X    * (1 -   K   ) +   K  [for X = C, M, or Y]
-            // Thus, from Inverted CMYK to CMY is:
-            // X = (1-iX) * (1 - (1-iK)) + (1-iK) => 1 - iX*iK
-            // From CMY (0..1) to RGB (0..1):
-            // R = 1 - C => 1 - (1 - iC*iK) => iC*iK  [G and B similar]
-            unsigned k = jsample[3];
-            buffer.setRGBA(currentAddress, jsample[0] * k / 255, jsample[1] * k / 255, jsample[2] * k / 255, 0xFF);
-            break;
-    }
-}
-*/
-
 @end
