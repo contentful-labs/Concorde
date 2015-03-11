@@ -63,6 +63,8 @@ METHODDEF(void) my_error_exit (j_common_ptr cinfo) {
     longjmp(myerr->setjmp_buffer, 1);
 }
 
+METHODDEF(void) my_output_message(j_common_ptr cinfo) { }
+
 #pragma mark -
 
 @interface CCBufferedImageDecoder ()
@@ -110,6 +112,7 @@ METHODDEF(void) my_error_exit (j_common_ptr cinfo) {
 
     self->info.err = jpeg_std_error((struct jpeg_error_mgr *)&jerr);
     jerr.pub.error_exit = my_error_exit;
+    jerr.pub.output_message = my_output_message;
 
     jpeg_create_decompress(&self->info);
     jpeg_mem_src(&self->info, (unsigned char *)self.data.bytes, self.data.length);
