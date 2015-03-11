@@ -20,6 +20,7 @@
 		A16BEE141AB046ED0089C2FE /* CCBufferedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16BEE131AB046ED0089C2FE /* CCBufferedImageView.swift */; };
 		A16BEE151AB049C60089C2FE /* Concorde.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1441E2F1AADD59100973761 /* Concorde.framework */; };
 		A16BEE161AB049C60089C2FE /* Concorde.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1441E2F1AADD59100973761 /* Concorde.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A16BEE1C1AB0AAEB0089C2FE /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16BEE1A1AB0AACC0089C2FE /* PerformanceTests.swift */; };
 		D5AD8EDE87356F39B0D8349D /* Pods_ConcordeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD1905452D3DF48A0334F20 /* Pods_ConcordeTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		A16BEDF41AB042A80089C2FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A16BEDF51AB042A80089C2FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A16BEE131AB046ED0089C2FE /* CCBufferedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCBufferedImageView.swift; sourceTree = "<group>"; };
+		A16BEE1A1AB0AACC0089C2FE /* PerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		F427F11F3590B252FFC22D6C /* Pods-ConcordeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcordeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConcordeTests/Pods-ConcordeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,11 +153,12 @@
 		A1441E3E1AADD59100973761 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A1691EEB1AAF554500AADD22 /* ReferenceImages */,
 				A1441E411AADD59100973761 /* ConcordeTests.swift */,
+				A16BEE1A1AB0AACC0089C2FE /* PerformanceTests.swift */,
 				A1441E401AADD59100973761 /* Info.plist */,
 				A1691EE51AAF206B00AADD22 /* non-progressive.jpg */,
 				A1691EE61AAF206B00AADD22 /* progressive.jpg */,
+				A1691EEB1AAF554500AADD22 /* ReferenceImages */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A16BEE1C1AB0AAEB0089C2FE /* PerformanceTests.swift in Sources */,
 				A1441E421AADD59100973761 /* ConcordeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
