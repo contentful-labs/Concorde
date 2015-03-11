@@ -8,8 +8,25 @@
 
 #import <stdio.h>
 #import "jpeglib.h"
+#include <setjmp.h>
 
 #import "CCBufferedImageDecoder.h"
+
+// Error handling code from libjpeg's example.c
+struct my_error_mgr {
+    struct jpeg_error_mgr pub;
+    jmp_buf setjmp_buffer;
+};
+
+typedef struct my_error_mgr * my_error_ptr;
+
+METHODDEF(void) my_error_exit (j_common_ptr cinfo) {
+    my_error_ptr myerr = (my_error_ptr) cinfo->err;
+    (*cinfo->err->output_message) (cinfo);
+    longjmp(myerr->setjmp_buffer, 1);
+}
+
+#pragma mark -
 
 @interface CCBufferedImageDecoder ()
 
@@ -22,7 +39,7 @@
 #pragma mark -
 
 @implementation CCBufferedImageDecoder {
-    struct jpeg_error_mgr jerr;
+    struct my_error_mgr jerr;
     struct jpeg_decompress_struct info;
     JSAMPROW samples;
 }
@@ -49,7 +66,9 @@
 
 -(void)initializeDecompression {
     memset(&self->info, 0, sizeof(struct jpeg_decompress_struct));
-    self->info.err = jpeg_std_error(&jerr);
+
+    self->info.err = jpeg_std_error((struct jpeg_error_mgr *)&jerr);
+    jerr.pub.error_exit = my_error_exit;
 
     jpeg_create_decompress(&self->info);
     jpeg_mem_src(&self->info, (unsigned char *)self.data.bytes, self.data.length);
@@ -93,7 +112,7 @@
 }
 
 -(CCDecodingStatus)decompress {
-    if (self.done) {
+    if (self.done || setjmp(jerr.setjmp_buffer)) {
         return CCDecodingStatusFinished;
     }
 

@@ -49,6 +49,12 @@ class ConcordeTests: QuickSpec {
             expect(view).to(haveValidSnapshot())
         }
 
+        it("is resilient against errors in the data to decode") {
+            let partialData = progressiveData.subdataWithRange(NSMakeRange(0, 32768))
+            let decoder = CCBufferedImageDecoder(data: partialData)
+            decoder.decompress()
+        }
+
         it("is resilient against calling decode() many times") {
             let decoder = CCBufferedImageDecoder(data: nonProgressiveData)
 
