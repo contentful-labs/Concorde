@@ -40,6 +40,7 @@ public class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
 
     /// Load a JPEG from the given URL
     public func load(URL: NSURL) {
+        connection?.cancel()
         connection = NSURLConnection(request: NSURLRequest(URL: URL), delegate: self)
     }
 
