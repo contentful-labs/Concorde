@@ -15,11 +15,17 @@ Pod::Spec.new do |s|
                      :tag => s.version.to_s }
   s.requires_arc = true
 
-  s.source_files         = 'Code/*.{h,m}', 'vendor/libjpeg-turbo/include/*'
-  s.public_header_files  = 'Code/CCBufferedImageDecoder.h'
-  s.vendored_libraries   = 'vendor/libjpeg-turbo/lib/libturbojpeg.a'
+  s.default_subspecs = 'Core'
 
-  s.ios.deployment_target     = '6.0'
+  s.ios.deployment_target     = '8.0'
   s.ios.frameworks            = 'UIKit'
-  s.osx.deployment_target     = '10.8'
+  s.osx.deployment_target     = '10.9'
+
+  s.subspec 'Core' do |core_spec|
+    core_spec.source_files         = 'Code/*.{h,m}', 'vendor/libjpeg-turbo/include/*'
+    core_spec.public_header_files  = 'Code/CCBufferedImageDecoder.h'
+    core_spec.vendored_libraries   = 'vendor/libjpeg-turbo/lib/libturbojpeg.a'
+
+    core_spec.ios.source_files     = 'Code/CCBufferedImageView.swift'
+  end
 end
