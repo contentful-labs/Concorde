@@ -53,9 +53,9 @@ public class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
 
     /// see NSURLConnectionDataDelegate
     public func connection(connection: NSURLConnection, didReceiveData data: NSData) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            self.data?.appendData(data)
+        self.data?.appendData(data)
 
+        dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             let decoder = CCBufferedImageDecoder(data: self.data)
             decoder.decompress()
             let decodedImage = decoder.toImage()
