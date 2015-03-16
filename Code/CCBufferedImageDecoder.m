@@ -114,6 +114,10 @@ METHODDEF(void) my_output_message(j_common_ptr cinfo) { }
     jerr.pub.error_exit = my_error_exit;
     jerr.pub.output_message = my_output_message;
 
+    if (setjmp(jerr.setjmp_buffer)) {
+        return;
+    }
+
     jpeg_create_decompress(&self->info);
     jpeg_mem_src(&self->info, (unsigned char *)self.data.bytes, self.data.length);
 }
