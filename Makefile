@@ -6,6 +6,7 @@ doc:
 	bundle exec pod lib docstats
 
 setup:
+	git submodule update --init
 	bundle install
 	bundle exec pod install
 
