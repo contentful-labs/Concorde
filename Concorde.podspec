@@ -28,4 +28,11 @@ Pod::Spec.new do |s|
 
     core_spec.ios.source_files     = 'Code/CCBufferedImageView.swift'
   end
+
+  s.subspec 'Contentful' do |contentful_spec|
+    contentful_spec.ios.source_files = 'Code/CCBufferedImageView+Contentful.swift'
+
+    contentful_spec.dependency 'Concorde/Core'
+    contentful_spec.dependency 'ContentfulDeliveryAPI', '>= 1.6.0'
+  end
 end
