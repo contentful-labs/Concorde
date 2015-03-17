@@ -14,6 +14,9 @@ public class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
     private let defaultContentLength = 5 * 1024 * 1024
     private var data: NSMutableData?
 
+    /// Optional handler which is called after an image has been successfully downloaded
+    public var loadedHandler: (() -> ())?
+
     deinit {
         connection?.cancel()
     }
@@ -79,5 +82,9 @@ public class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
     /// see NSURLConnectionDataDelegate
     public func connectionDidFinishLoading(connection: NSURLConnection) {
         data = nil
+
+        if let loadedHandler = loadedHandler {
+            loadedHandler()
+        }
     }
 }
