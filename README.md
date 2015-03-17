@@ -1,5 +1,11 @@
 # Concorde
 
+[![Version](https://img.shields.io/cocoapods/v/Concorde.svg?style=flat)](http://cocoadocs.org/docsets/Concorde)
+[![License](https://img.shields.io/cocoapods/l/Concorde.svg?style=flat)](http://cocoadocs.org/docsets/Concorde)
+[![Platform](https://img.shields.io/cocoapods/p/Concorde.svg?style=flat)](http://cocoadocs.org/docsets/Concorde)
+[![Build Status](http://img.shields.io/travis/contentful-labs/Concorde.svg?style=flat)](https://travis-ci.org/contentful-labs/Concorde)
+[![Coverage Status](https://coveralls.io/repos/contentful-labs/Concorde/badge.svg?branch=master)](https://coveralls.io/r/contentful-labs/Concorde?branch=master)
+
 ![](use.gif)
 
 This is a framework for downloading and decoding progressive JPEGs easily on iOS and OS X. It uses [libjpeg-turbo][1] as underlying JPEG implementation. We vendor version 1.4.0 of the static library from libjpeg-turbo's [official release][3] for convenience.
