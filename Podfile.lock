@@ -8,25 +8,25 @@ PODS:
   - Quick (0.2.2)
 
 DEPENDENCIES:
-  - Nimble (from `git@github.com:Quick/Nimble.git`, branch `swift-1.1`)
+  - Nimble (from `https://github.com/Quick/Nimble.git`, branch `swift-1.1`)
   - Nimble-Snapshots
-  - Quick (from `git@github.com:Quick/Quick.git`, branch `swift-1.1`)
+  - Quick (from `https://github.com/Quick/Quick.git`, branch `swift-1.1`)
 
 EXTERNAL SOURCES:
   Nimble:
     :branch: swift-1.1
-    :git: git@github.com:Quick/Nimble.git
+    :git: https://github.com/Quick/Nimble.git
   Quick:
     :branch: swift-1.1
-    :git: git@github.com:Quick/Quick.git
+    :git: https://github.com/Quick/Quick.git
 
 CHECKOUT OPTIONS:
   Nimble:
     :commit: 1088d5f70497f34be946e3e2829a10529f7bea8e
-    :git: git@github.com:Quick/Nimble.git
+    :git: https://github.com/Quick/Nimble.git
   Quick:
     :commit: f8c9ff9f499fc5ea72ff55c1c5eed32e1ff303ea
-    :git: git@github.com:Quick/Quick.git
+    :git: https://github.com/Quick/Quick.git
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: e2914fbaabccea1dcc773d6a16b1c24540642488
