@@ -1,0 +1,4 @@
+[submodule "Tests/ReferenceImages"]
+	path = Tests/ReferenceImages
+	url = https://github.com/contentful-labs/Concorde.git
+	branch = Fixtures
