@@ -21,6 +21,16 @@ if let url = NSURL(string: "http://example.com/yolo.jpg") {
 }
 ```
 
+If you use [Contentful][2], install the subspec:
+
+```
+pod 'Concorde/Contentful'
+```
+
+and replace your usage of `UIImageView` with `CCBufferedImageView` to automatically use progressive JPEGs
+if you have been using the `UIImageView` category before. This will work regardless of the original format
+of your files due to the image transformation functionality of the delivery API.
+
 ## License
 
 Copyright (c) 2015 Contentful GmbH. See LICENSE for further details.
