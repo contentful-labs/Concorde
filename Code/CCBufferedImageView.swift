@@ -13,6 +13,7 @@ public class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
     private weak var connection: NSURLConnection?
     private let defaultContentLength = 5 * 1024 * 1024
     private var data: NSMutableData?
+    private let queue = dispatch_queue_create("com.contentful.Concorde", DISPATCH_QUEUE_SERIAL)
 
     /// Optional handler which is called after an image has been successfully downloaded
     public var loadedHandler: (() -> ())?
@@ -58,7 +59,7 @@ public class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
     public func connection(connection: NSURLConnection, didReceiveData data: NSData) {
         self.data?.appendData(data)
 
-        dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        dispatch_sync(queue) {
             let decoder = CCBufferedImageDecoder(data: self.data)
             decoder.decompress()
             let decodedImage = decoder.toImage()
