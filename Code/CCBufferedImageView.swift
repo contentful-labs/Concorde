@@ -31,7 +31,7 @@ public class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
 
     /// Initialize a new image view and start loading a JPEG from the given URL
     public init(URL: NSURL) {
-        super.init()
+        super.init(image: nil)
 
         backgroundColor = UIColor.grayColor()
         load(URL)
