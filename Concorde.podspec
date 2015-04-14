@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Concorde"
-  s.version          = "0.0.1"
+  s.version          = "0.0.3"
   s.summary          = "Download and decode progressive JPEGs easily."
   s.homepage         = "https://github.com/contentful-labs/Concorde/"
   s.social_media_url = 'https://twitter.com/contentful'

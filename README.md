@@ -37,6 +37,10 @@ and replace your usage of `UIImageView` with `CCBufferedImageView` to automatica
 if you have been using the `UIImageView` category before. This will work regardless of the original format
 of your files due to the image transformation functionality of the delivery API.
 
+### Manual integration
+
+You can also integrate Concorde as a subproject or download a binary build from the releases section. Please note that those are only provided for iOS at the moment.
+
 ## License
 
 Copyright (c) 2015 Contentful GmbH. See LICENSE for further details.
