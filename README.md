@@ -20,7 +20,7 @@ pod 'Concorde'
 
 and then use `CCBufferedImageView` which progressively downloads and shows an image:
 
-```objective-c
+```swift
 let imageView = CCBufferedImageView(frame: ...)
 if let url = NSURL(string: "http://example.com/yolo.jpg") {
 	imageView.load(url)
