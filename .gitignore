@@ -19,6 +19,7 @@ compile_commands.json
 *.xccheckout
 xcuserdata
 .idea
+*.xcscmblueprint
 
 ## CocoaPods
 
