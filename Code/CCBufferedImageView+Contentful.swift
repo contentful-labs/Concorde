@@ -14,7 +14,7 @@ extension UIImageView {
         fatalError("should never be called")
     }
 
-    func cda_setImageWithAsset(asset: CDAAsset!, URL: NSURL!, size: CGSize, placeholderImage: UIImage!) {
+    func cda_setImageWithAsset(asset: CDAAsset, URL: NSURL!, size: CGSize, placeholderImage: UIImage!) {
         fatalError("should never be called")
     }
 }
@@ -34,11 +34,8 @@ extension CCBufferedImageView {
         }
     }
 
-    public override func cda_setImageWithAsset(asset: CDAAsset!, size: CGSize, placeholderImage: UIImage!) {
-        if let asset = asset {
-            let URL = asset.imageURLWithSize(size, quality: 0.75, format: CDAImageFormat.JPEG, fit: CDAFitType.Default, focus: nil, radius: CDARadiusNone, background: nil, progressive: true)
-
-            cda_setImageWithAsset(asset, URL: URL, size: size, placeholderImage: placeholderImage)
-        }
+    public override func cda_setImageWithAsset(asset: CDAAsset, size: CGSize, placeholderImage: UIImage!) {
+        let URL = asset.imageURLWithSize(size, quality: 0.75, format: CDAImageFormat.JPEG, fit: CDAFitType.Default, focus: nil, radius: CDARadiusNone, background: nil, progressive: true)
+        cda_setImageWithAsset(asset, URL: URL, size: size, placeholderImage: placeholderImage)
     }
 }
