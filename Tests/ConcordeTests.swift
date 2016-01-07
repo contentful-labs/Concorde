@@ -89,5 +89,11 @@ class ConcordeTests: QuickSpec {
 
             expect(decoder.toImage()).toNot(beNil())
         }
+
+        it("can be used in IB") {
+            let imageView = CCBufferedImageView(coder: NSKeyedUnarchiver(forReadingWithData: NSData()))
+
+            expect(imageView).toNot(beNil())
+        }
     }
 }
