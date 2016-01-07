@@ -13,6 +13,7 @@ import Quick
 
 class ConcordeTests: QuickSpec {
     override func spec() {
+        var crashData = NSData()
         var nonProgressiveData = NSData()
         var progressiveData = NSData()
 
@@ -22,6 +23,9 @@ class ConcordeTests: QuickSpec {
 
             path = NSBundle(forClass: self.dynamicType).pathForResource("progressive", ofType: "jpg")
             progressiveData = NSData(contentsOfFile: path!)!
+
+            path = NSBundle(forClass: self.dynamicType).pathForResource("crash", ofType: "jpg")
+            crashData = NSData(contentsOfFile: path!)!
         }
 
         it("can decode non-progressive JPEGs") {
@@ -58,7 +62,7 @@ class ConcordeTests: QuickSpec {
         it("is resilient against calling decode() many times") {
             let decoder = CCBufferedImageDecoder(data: nonProgressiveData)
 
-            for i in 0...5 {
+            for _ in 0...5 {
                 decoder.decompress()
             }
 
@@ -77,6 +81,13 @@ class ConcordeTests: QuickSpec {
             decoder.decompress()
 
             expect(decoder.toImage()).to(beNil())
+        }
+
+        it("is resilient against crashing with non-progressive images") {
+            let decoder = CCBufferedImageDecoder(data: crashData)
+            decoder.decompress()
+
+            expect(decoder.toImage()).toNot(beNil())
         }
     }
 }

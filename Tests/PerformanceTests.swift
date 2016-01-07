@@ -23,7 +23,7 @@ class PerformanceTests: XCTestCase {
     var progressiveData = NSData()
 
     override func setUp() {
-        var path = NSBundle(forClass: self.dynamicType).pathForResource("progressive", ofType: "jpg")
+        let path = NSBundle(forClass: self.dynamicType).pathForResource("progressive", ofType: "jpg")
         progressiveData = NSData(contentsOfFile: path!)!
     }
 
