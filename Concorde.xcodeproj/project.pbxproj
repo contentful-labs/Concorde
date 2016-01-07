@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F024DE7C4E0F90E550A8070 /* Pods_ConcordeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA36CE6F9CE77746D922007 /* Pods_ConcordeTests.framework */; };
 		A1441E351AADD59100973761 /* Concorde.h in Headers */ = {isa = PBXBuildFile; fileRef = A1441E341AADD59100973761 /* Concorde.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1441E3B1AADD59100973761 /* Concorde.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1441E2F1AADD59100973761 /* Concorde.framework */; };
 		A1441E421AADD59100973761 /* ConcordeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1441E411AADD59100973761 /* ConcordeTests.swift */; };
@@ -22,7 +23,6 @@
 		A16BEE151AB049C60089C2FE /* Concorde.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1441E2F1AADD59100973761 /* Concorde.framework */; };
 		A16BEE161AB049C60089C2FE /* Concorde.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1441E2F1AADD59100973761 /* Concorde.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A16BEE1C1AB0AAEB0089C2FE /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16BEE1A1AB0AACC0089C2FE /* PerformanceTests.swift */; };
-		D5AD8EDE87356F39B0D8349D /* Pods_ConcordeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD1905452D3DF48A0334F20 /* Pods_ConcordeTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2AD1905452D3DF48A0334F20 /* Pods_ConcordeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConcordeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		347B4509BA485E5DA43F0FD1 /* Pods-ConcordeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcordeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConcordeTests/Pods-ConcordeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1441E2F1AADD59100973761 /* Concorde.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Concorde.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1441E331AADD59100973761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1441E341AADD59100973761 /* Concorde.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Concorde.h; sourceTree = "<group>"; };
@@ -77,7 +75,9 @@
 		A16BEDF51AB042A80089C2FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A16BEE131AB046ED0089C2FE /* CCBufferedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCBufferedImageView.swift; sourceTree = "<group>"; };
 		A16BEE1A1AB0AACC0089C2FE /* PerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
-		F427F11F3590B252FFC22D6C /* Pods-ConcordeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcordeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConcordeTests/Pods-ConcordeTests.release.xcconfig"; sourceTree = "<group>"; };
+		BCA36CE6F9CE77746D922007 /* Pods_ConcordeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConcordeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7FA5798FD4F2480455DDBEB /* Pods-ConcordeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcordeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConcordeTests/Pods-ConcordeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C954D01EE7376AF398F9DFA2 /* Pods-ConcordeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcordeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConcordeTests/Pods-ConcordeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1441E3B1AADD59100973761 /* Concorde.framework in Frameworks */,
-				D5AD8EDE87356F39B0D8349D /* Pods_ConcordeTests.framework in Frameworks */,
+				4F024DE7C4E0F90E550A8070 /* Pods_ConcordeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,11 +109,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7D4611DF3DC13B8615C5E2C2 /* Pods */ = {
+		4FD311991E54C0D9566761D3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				347B4509BA485E5DA43F0FD1 /* Pods-ConcordeTests.debug.xcconfig */,
-				F427F11F3590B252FFC22D6C /* Pods-ConcordeTests.release.xcconfig */,
+				C7FA5798FD4F2480455DDBEB /* Pods-ConcordeTests.debug.xcconfig */,
+				C954D01EE7376AF398F9DFA2 /* Pods-ConcordeTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -124,9 +124,9 @@
 				A1441E311AADD59100973761 /* Code */,
 				A16BEDF21AB042A80089C2FE /* Example */,
 				A1691EE41AAF035700AADD22 /* Frameworks */,
-				7D4611DF3DC13B8615C5E2C2 /* Pods */,
 				A1441E301AADD59100973761 /* Products */,
 				A1441E3E1AADD59100973761 /* Tests */,
+				4FD311991E54C0D9566761D3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,7 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				A1691EE21AAF034E00AADD22 /* libturbojpeg.a */,
-				2AD1905452D3DF48A0334F20 /* Pods_ConcordeTests.framework */,
+				BCA36CE6F9CE77746D922007 /* Pods_ConcordeTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -221,12 +221,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1441E481AADD59100973761 /* Build configuration list for PBXNativeTarget "ConcordeTests" */;
 			buildPhases = (
-				724CE6E425B013781D6F5FA0 /* Check Pods Manifest.lock */,
+				0F585E7E830374604C70A597 /* Check Pods Manifest.lock */,
 				A1441E361AADD59100973761 /* Sources */,
 				A1441E371AADD59100973761 /* Frameworks */,
 				A1441E381AADD59100973761 /* Resources */,
-				B01F6E58CE50380E3BD7E671 /* Embed Pods Frameworks */,
-				681C6D6065901B71223DCC14 /* Copy Pods Resources */,
+				E54C51A8D5B504A86F58E021 /* Embed Pods Frameworks */,
+				C69F6314468432D0363B1581 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,22 +327,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		681C6D6065901B71223DCC14 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConcordeTests/Pods-ConcordeTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		724CE6E425B013781D6F5FA0 /* Check Pods Manifest.lock */ = {
+		0F585E7E830374604C70A597 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -357,7 +342,22 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B01F6E58CE50380E3BD7E671 /* Embed Pods Frameworks */ = {
+		C69F6314468432D0363B1581 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConcordeTests/Pods-ConcordeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E54C51A8D5B504A86F58E021 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -560,7 +560,7 @@
 		};
 		A1441E491AADD59100973761 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 347B4509BA485E5DA43F0FD1 /* Pods-ConcordeTests.debug.xcconfig */;
+			baseConfigurationReference = C7FA5798FD4F2480455DDBEB /* Pods-ConcordeTests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -579,7 +579,7 @@
 		};
 		A1441E4A1AADD59100973761 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F427F11F3590B252FFC22D6C /* Pods-ConcordeTests.release.xcconfig */;
+			baseConfigurationReference = C954D01EE7376AF398F9DFA2 /* Pods-ConcordeTests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

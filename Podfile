@@ -1,15 +1,10 @@
 use_frameworks!
 
-target 'ConcordeTests', :exclusive => true do
+target 'ConcordeTests' do
 
 pod 'Nimble'
 pod 'Nimble-Snapshots'
 pod 'Quick'
+pod 'FBSnapshotTestCase', :git => 'https://github.com/neonichu/ios-snapshot-test-case.git'
 
 end
-
-# Workaround for Xcode >= 7.1 vs. CP 0.39
-post_install do |installer|
-  `rm -rf ./Pods/Headers`
-end
-
