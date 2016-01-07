@@ -37,9 +37,11 @@ public class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
         load(URL)
     }
 
-    /// Required initializer, not implemented
-    required public init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    /// Required initializer, implemented!!!
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+      
+        backgroundColor = UIColor.grayColor()
     }
 
     /// Load a JPEG from the given URL
