@@ -64,8 +64,11 @@ public class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
         dispatch_sync(queue) {
             let decoder = CCBufferedImageDecoder(data: self.data)
             decoder.decompress()
-            let decodedImage = decoder.toImage()
-
+            
+            guard let decodedImage = decoder.toImage() else {
+                return
+            }
+            
             UIGraphicsBeginImageContext(CGSizeMake(1,1))
             let context = UIGraphicsGetCurrentContext()
             CGContextDrawImage(context, CGRectMake(0, 0, 1, 1), decodedImage.CGImage)
