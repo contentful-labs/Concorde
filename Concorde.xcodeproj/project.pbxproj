@@ -228,12 +228,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1441E481AADD59100973761 /* Build configuration list for PBXNativeTarget "ConcordeTests" */;
 			buildPhases = (
-				0F585E7E830374604C70A597 /* Check Pods Manifest.lock */,
+				0F585E7E830374604C70A597 /* 📦 Check Pods Manifest.lock */,
 				A1441E361AADD59100973761 /* Sources */,
 				A1441E371AADD59100973761 /* Frameworks */,
 				A1441E381AADD59100973761 /* Resources */,
-				E54C51A8D5B504A86F58E021 /* Embed Pods Frameworks */,
-				C69F6314468432D0363B1581 /* Copy Pods Resources */,
+				E54C51A8D5B504A86F58E021 /* 📦 Embed Pods Frameworks */,
+				C69F6314468432D0363B1581 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -336,14 +336,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0F585E7E830374604C70A597 /* Check Pods Manifest.lock */ = {
+		0F585E7E830374604C70A597 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,14 +351,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C69F6314468432D0363B1581 /* Copy Pods Resources */ = {
+		C69F6314468432D0363B1581 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,14 +366,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConcordeTests/Pods-ConcordeTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E54C51A8D5B504A86F58E021 /* Embed Pods Frameworks */ = {
+		E54C51A8D5B504A86F58E021 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

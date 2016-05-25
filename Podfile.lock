@@ -1,37 +1,37 @@
 PODS:
-  - FBSnapshotTestCase (2.0.7):
-    - FBSnapshotTestCase/SwiftSupport (= 2.0.7)
-  - FBSnapshotTestCase/Core (2.0.7)
-  - FBSnapshotTestCase/SwiftSupport (2.0.7):
+  - FBSnapshotTestCase (2.1.1):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.1)
+  - FBSnapshotTestCase/Core (2.1.1)
+  - FBSnapshotTestCase/SwiftSupport (2.1.1):
     - FBSnapshotTestCase/Core
-  - Nimble (3.0.0)
-  - Nimble-Snapshots (3.0.0):
-    - FBSnapshotTestCase (~> 2.0.7)
+  - Nimble (4.0.1)
+  - Nimble-Snapshots (4.1.0):
+    - FBSnapshotTestCase (~> 2.0)
     - Nimble
     - Quick
-  - Quick (0.8.0)
+  - Quick (0.9.2)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase (from `https://github.com/neonichu/ios-snapshot-test-case.git`)
+  - FBSnapshotTestCase (from `git@github.com:facebook/ios-snapshot-test-case.git`)
   - Nimble
   - Nimble-Snapshots
   - Quick
 
 EXTERNAL SOURCES:
   FBSnapshotTestCase:
-    :git: https://github.com/neonichu/ios-snapshot-test-case.git
+    :git: git@github.com:facebook/ios-snapshot-test-case.git
 
 CHECKOUT OPTIONS:
   FBSnapshotTestCase:
-    :commit: 9e88da88a7a3df2f80838449a5f1e71830179218
-    :git: https://github.com/neonichu/ios-snapshot-test-case.git
+    :commit: 5a4ee79ed96dd0d2f3766ffd22ecb04ef73c2c82
+    :git: git@github.com:facebook/ios-snapshot-test-case.git
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: a89bbc6ea786ef38c2d4e313b3374177c8597b8f
-  Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
-  Nimble-Snapshots: ab41dd737dcd33a0b0cb005a30465fef70b7207a
-  Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
+  FBSnapshotTestCase: ec0ed7378d617e4b787e6cf9899d22cb86010b94
+  Nimble: 0f3c8b8b084cda391209c3c5efbb48bedeeb920a
+  Nimble-Snapshots: 2da4d2ec829b458d6886c06812c52493fce284c9
+  Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
 
-PODFILE CHECKSUM: 443d05a3c22ee23cb077844ad0f1015d4d275509
+PODFILE CHECKSUM: 141b58f4f8592a6fea4f5fee49d19c090fcdd2d0
 
-COCOAPODS: 1.0.0.beta.2
+COCOAPODS: 1.0.0

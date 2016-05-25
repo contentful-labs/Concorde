@@ -5,6 +5,6 @@ target 'ConcordeTests' do
 pod 'Nimble'
 pod 'Nimble-Snapshots'
 pod 'Quick'
-pod 'FBSnapshotTestCase', :git => 'https://github.com/neonichu/ios-snapshot-test-case.git'
+pod 'FBSnapshotTestCase', :git => 'git@github.com:facebook/ios-snapshot-test-case.git'
 
 end
