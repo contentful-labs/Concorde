@@ -12,19 +12,19 @@ PODS:
   - Quick (0.9.2)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase (from `git@github.com:facebook/ios-snapshot-test-case.git`)
+  - FBSnapshotTestCase (from `https://github.com/facebook/ios-snapshot-test-case.git`)
   - Nimble
   - Nimble-Snapshots
   - Quick
 
 EXTERNAL SOURCES:
   FBSnapshotTestCase:
-    :git: git@github.com:facebook/ios-snapshot-test-case.git
+    :git: https://github.com/facebook/ios-snapshot-test-case.git
 
 CHECKOUT OPTIONS:
   FBSnapshotTestCase:
     :commit: 5a4ee79ed96dd0d2f3766ffd22ecb04ef73c2c82
-    :git: git@github.com:facebook/ios-snapshot-test-case.git
+    :git: https://github.com/facebook/ios-snapshot-test-case.git
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: ec0ed7378d617e4b787e6cf9899d22cb86010b94
@@ -32,6 +32,6 @@ SPEC CHECKSUMS:
   Nimble-Snapshots: 2da4d2ec829b458d6886c06812c52493fce284c9
   Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
 
-PODFILE CHECKSUM: 141b58f4f8592a6fea4f5fee49d19c090fcdd2d0
+PODFILE CHECKSUM: 1bfa59bbc12229919c558b91242e4b0cee8af428
 
 COCOAPODS: 1.0.0
