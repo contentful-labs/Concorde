@@ -8,6 +8,7 @@ doc:
 setup:
 	git submodule update --init
 	bundle install
+	bundle exec pod repo update
 	bundle exec pod install
 
 test:
