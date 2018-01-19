@@ -9,10 +9,10 @@
 import Concorde
 import XCTest
 
-func decompressImage(data: NSData) {
+func decompressImage(_ data: Data) {
     if let image = UIImage(data: data) {
-        UIGraphicsBeginImageContext(CGSizeMake(1, 1))
-        image.drawAtPoint(CGPointZero)
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+        image.draw(at: CGPoint.zero)
         UIGraphicsEndImageContext()
     } else {
         XCTFail("Could not load image")
@@ -20,23 +20,23 @@ func decompressImage(data: NSData) {
 }
 
 class PerformanceTests: XCTestCase {
-    var progressiveData = NSData()
+    var progressiveData = Data()
 
     override func setUp() {
-        let path = NSBundle(forClass: self.dynamicType).pathForResource("progressive", ofType: "jpg")
-        progressiveData = NSData(contentsOfFile: path!)!
+        let path = Bundle(for: type(of: self)).path(forResource: "progressive", ofType: "jpg")
+        progressiveData = try! Data(contentsOf: URL(fileURLWithPath: path!))
     }
 
     func testPerformanceIsComparableToImageIO() {
-        self.measureBlock {
+        self.measure {
             //decompressImage(self.progressiveData)
 
             let decoder = CCBufferedImageDecoder(data: self.progressiveData)
             decoder.decompress()
             let decodedImage = decoder.toImage()
 
-            UIGraphicsBeginImageContext(CGSizeMake(1, 1))
-            decodedImage.drawAtPoint(CGPointZero)
+            UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+            decodedImage.draw(at: CGPoint.zero)
             UIGraphicsEndImageContext()
 
             XCTAssertNotNil(decodedImage, "")

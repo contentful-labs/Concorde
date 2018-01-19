@@ -13,18 +13,18 @@ import Quick
 
 class ConcordeTests: QuickSpec {
     override func spec() {
-        var crashData = NSData()
-        var nonProgressiveData = NSData()
-        var progressiveData = NSData()
+        var crashData = Data()
+        var nonProgressiveData = Data()
+        var progressiveData = Data()
 
         beforeEach {
-            var path = NSBundle(forClass: self.dynamicType).pathForResource("non-progressive", ofType: "jpg")
+            var path = NSBundle(forClass: type(of: self)).pathForResource("non-progressive", ofType: "jpg")
             nonProgressiveData = NSData(contentsOfFile: path!)!
 
-            path = NSBundle(forClass: self.dynamicType).pathForResource("progressive", ofType: "jpg")
+            path = NSBundle(forClass: type(of: self)).pathForResource("progressive", ofType: "jpg")
             progressiveData = NSData(contentsOfFile: path!)!
 
-            path = NSBundle(forClass: self.dynamicType).pathForResource("crash", ofType: "jpg")
+            path = NSBundle(forClass: type(of: self)).pathForResource("crash", ofType: "jpg")
             crashData = NSData(contentsOfFile: path!)!
         }
 
