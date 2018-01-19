@@ -18,9 +18,8 @@ class ConcordeTests: QuickSpec {
         var progressiveData = Data()
 
         beforeEach {
-            var path = URL(fileURLWithPath: Bundle(for: type(of: self)).path(forResource: "non-progressive", ofType: "jpg")!)
-
             do {
+                var path = URL(fileURLWithPath: Bundle(for: type(of: self)).path(forResource: "non-progressive", ofType: "jpg")!)
                 try nonProgressiveData = Data(contentsOf: path)
 
                 path = URL(fileURLWithPath: Bundle(for: type(of: self)).path(forResource: "progressive", ofType: "jpg")!)

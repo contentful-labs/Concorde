@@ -80,7 +80,7 @@
 		A16BEDF11AB042A80089C2FE /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16BEDF41AB042A80089C2FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A16BEDF51AB042A80089C2FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A16BEE131AB046ED0089C2FE /* CCBufferedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCBufferedImageView.swift; sourceTree = "<group>"; };
+		A16BEE131AB046ED0089C2FE /* CCBufferedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCBufferedImageView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		A16BEE1A1AB0AACC0089C2FE /* PerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		BCA36CE6F9CE77746D922007 /* Pods_ConcordeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConcordeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7FA5798FD4F2480455DDBEB /* Pods-ConcordeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcordeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConcordeTests/Pods-ConcordeTests.debug.xcconfig"; sourceTree = "<group>"; };
