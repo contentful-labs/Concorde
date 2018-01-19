@@ -32,11 +32,11 @@ class PerformanceTests: XCTestCase {
             //decompressImage(self.progressiveData)
 
             let decoder = CCBufferedImageDecoder(data: self.progressiveData)
-            decoder.decompress()
-            let decodedImage = decoder.toImage()
+            decoder?.decompress()
+            let decodedImage = decoder?.toImage()
 
             UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
-            decodedImage.draw(at: CGPoint.zero)
+            decodedImage?.draw(at: CGPoint.zero)
             UIGraphicsEndImageContext()
 
             XCTAssertNotNil(decodedImage, "")

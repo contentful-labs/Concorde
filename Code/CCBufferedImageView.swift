@@ -48,7 +48,6 @@ open class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
     open func load(_ URL: Foundation.URL) {
         connection?.cancel()
         connection = NSURLConnection(request: URLRequest(url: URL), delegate: self)
-
     }
 
     // MARK: NSURLConnectionDataDelegate
