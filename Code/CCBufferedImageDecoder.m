@@ -243,7 +243,7 @@ METHODDEF(void) my_output_message(j_common_ptr cinfo) { }
 #else
 -(NSImage*)toImage {
 #endif
-    if (!self->info.output_scanline) {
+    if (!self->info.output_scanline || self->info.input_scan_number == 1) {
         return nil;
     }
 
