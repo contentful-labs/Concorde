@@ -40,6 +40,7 @@ class ConcordeTests: QuickSpec {
             decoder?.decompress()
 
             let view = UIImageView(image: decoder?.toImage())
+            expect(decoder?.isLoadingProgressiveJPEG).to(beFalse())
             expect(view).to(haveValidSnapshot())
         }
 
@@ -48,6 +49,7 @@ class ConcordeTests: QuickSpec {
             decoder?.decompress()
 
             let view = UIImageView(image: decoder?.toImage())
+            expect(decoder?.isLoadingProgressiveJPEG).to(beTrue())
             expect(view).to(haveValidSnapshot())
         }
 
