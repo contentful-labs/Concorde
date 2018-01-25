@@ -71,6 +71,7 @@ METHODDEF(void) my_output_message(j_common_ptr cinfo) { }
 
 @property (nonatomic) NSData* data;
 @property (nonatomic) BOOL done;
+@property (nonatomic) const BOOL showFirstPass;
 @property (nonatomic) NSMutableData* outputData;
 
 @end
@@ -91,9 +92,17 @@ METHODDEF(void) my_output_message(j_common_ptr cinfo) { }
 }
 
 -(instancetype)initWithData:(NSData*)data {
+    return [self initWithData:data showFirstPass:YES];
+}
+
+-(instancetype)initWithData:(NSData*)data showFirstPass:(BOOL)showFirstPass {
     self = [super init];
     if (self) {
         self.data = data;
+        self.showFirstPass = showFirstPass;
+
+        // Initially set here, but overriden once decompression starts
+        _isLoadingProgressiveJPEG = NO;
 
         if (self.data) {
             [self initializeDecompression];
@@ -126,6 +135,8 @@ METHODDEF(void) my_output_message(j_common_ptr cinfo) { }
     if (jpeg_read_header(&self->info, TRUE) == JPEG_SUSPENDED) {
         return NO;
     }
+
+    self.isLoadingProgressiveJPEG = self->info.progressive_mode;
 
     switch (self->info.jpeg_color_space) {
         case JCS_GRAYSCALE:
@@ -243,7 +254,8 @@ METHODDEF(void) my_output_message(j_common_ptr cinfo) { }
 #else
 -(NSImage*)toImage {
 #endif
-    if (!self->info.output_scanline || self->info.input_scan_number == 1) {
+    if (!self->info.output_scanline
+        || (!self.showFirstPass && self->info.input_scan_number == 1)) {
         return nil;
     }
 

@@ -27,6 +27,9 @@ typedef NS_ENUM(NSInteger, CCDecodingStatus){
 /** Decoder for JPEG images */
 @interface CCBufferedImageDecoder : NSObject
 
+/** Indicates whether the JPEG being decoded is progressive **/
+@property (nonatomic) BOOL isLoadingProgressiveJPEG;
+
 /**
  *  Decompress the next pass in buffered mode.
  *
@@ -42,6 +45,22 @@ typedef NS_ENUM(NSInteger, CCDecodingStatus){
  *  @return An initialized decoder instance.
  */
 -(instancetype)initWithData:(NSData*)data;
+
+/**
+ *  Initialize decoder with image data.
+ *
+ *  @param data The image data to decode.
+ *
+ *  @param showFirstPass If set to YES, the first pass will appear while
+ *  loading. The initial image frame will be grey, and the image will fill
+ *  in the frame line-by-line as the first pass loads. If set to NO, the
+ *  first pass will not appear until it is completed. The image frame will
+ *  fill in the full frame after the first pass has completed.
+ *
+ *  @return An initialized decoder instance.
+ */
+-(instancetype)initWithData:(NSData*)data showFirstPass:(BOOL)showFirstPass;
+
 
 /**
  *  Convert the result RGB data to an image instance.
