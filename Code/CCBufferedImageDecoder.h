@@ -44,7 +44,7 @@ typedef NS_ENUM(NSInteger, CCDecodingStatus){
  *
  *  @return An initialized decoder instance.
  */
--(instancetype)initWithData:(NSData*)data;
+-(instancetype _Nullable)initWithData:(NSData* _Nullable)data;
 
 /**
  *  Initialize decoder with image data.
@@ -68,7 +68,7 @@ typedef NS_ENUM(NSInteger, CCDecodingStatus){
  *  @return An image instance for use in Cocoa.
  */
 #if TARGET_OS_IPHONE
--(UIImage*)toImage;
+-(UIImage* _Nullable)toImage;
 #else
 -(NSImage*)toImage;
 #endif
