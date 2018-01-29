@@ -12,8 +12,14 @@ setup:
 	bundle exec pod install
 
 test:
+	bundle exec xcodebuild clean test \
+	 	-workspace Concorde.xcworkspace \
+		-scheme Concorde \
+		-destination "platform=iOS Simulator,name=iPhone 8 Plus" \
+		GENERATE_SNAPSHOTS=YES \
+		| xcpretty -c
 	bundle exec xcodebuild test \
 		-workspace Concorde.xcworkspace \
 		-scheme Concorde \
 		-destination 'platform=iOS Simulator,name=iPhone 8 Plus' \
-		| xcpretty -c
+		| xcpretty; exit ${PIPESTATUS[0]}

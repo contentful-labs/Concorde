@@ -10,8 +10,23 @@ import Concorde
 import Nimble
 import Nimble_Snapshots
 import Quick
+import Foundation
 
 class ConcordeTests: QuickSpec {
+
+    private func snapshotAction() -> Predicate<Snapshotable> {
+        guard let generateSnapshots = ProcessInfo.processInfo.environment["GENERATE_SNAPSHOTS"]?.lowercased() else {
+            return haveValidSnapshot()
+        }
+
+        switch generateSnapshots {
+        case "yes", "true", "1":
+            return recordSnapshot()
+        default:
+            return haveValidSnapshot()
+        }
+    }
+
     override func spec() {
         var crashData = Data()
         var nonProgressiveData = Data()
@@ -40,7 +55,7 @@ class ConcordeTests: QuickSpec {
             decoder?.decompress()
 
             let view = UIImageView(image: decoder?.toImage())
-            expect(view).to(haveValidSnapshot())
+            expect(view).to(self.snapshotAction())
         }
 
         it("can decode progressive JPEGs") {
@@ -48,7 +63,7 @@ class ConcordeTests: QuickSpec {
             decoder?.decompress()
 
             let view = UIImageView(image: decoder?.toImage())
-            expect(view).to(haveValidSnapshot())
+            expect(view).to(self.snapshotAction())
         }
 
         it("can decode partial progressive JPEGs") {
@@ -57,7 +72,7 @@ class ConcordeTests: QuickSpec {
             decoder?.decompress()
 
             let view = UIImageView(image: decoder?.toImage())
-            expect(view).to(haveValidSnapshot())
+            expect(view).to(self.snapshotAction())
         }
 
         it("is resilient against errors in the data to decode") {
@@ -74,7 +89,7 @@ class ConcordeTests: QuickSpec {
             }
 
             let view = UIImageView(image: decoder?.toImage())
-            expect(view).to(haveValidSnapshot())
+            expect(view).to(self.snapshotAction())
         }
 
         it("is resilient against not calling decode() at all") {
