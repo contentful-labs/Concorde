@@ -59,7 +59,7 @@ typedef NS_ENUM(NSInteger, CCDecodingStatus){
  *
  *  @return An initialized decoder instance.
  */
--(instancetype)initWithData:(NSData*)data showFirstPass:(BOOL)showFirstPass;
+-(instancetype _Nullable)initWithData:(NSData* _Nullable)data showFirstPass:(BOOL)showFirstPass;
 
 
 /**
