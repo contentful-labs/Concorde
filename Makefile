@@ -12,4 +12,5 @@ setup:
 	bundle exec pod install
 
 test:
+	bundle install
 	bundle exec pod lib coverage
