@@ -12,5 +12,8 @@ setup:
 	bundle exec pod install
 
 test:
-	bundle install
-	bundle exec pod lib coverage
+	bundle exec xcodebuild test \
+		-workspace Concorde.xcworkspace \
+		-scheme Concorde \
+		-destination 'platform=iOS Simulator,name=iPhone 8 Plus' \
+		| xcpretty -c
