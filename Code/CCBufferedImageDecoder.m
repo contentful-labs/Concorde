@@ -71,7 +71,6 @@ METHODDEF(void) my_output_message(j_common_ptr cinfo) { }
 
 @property (nonatomic) NSData* data;
 @property (nonatomic) BOOL done;
-@property (nonatomic) const BOOL showFirstPass;
 @property (nonatomic) NSMutableData* outputData;
 
 @end
@@ -92,17 +91,12 @@ METHODDEF(void) my_output_message(j_common_ptr cinfo) { }
 }
 
 -(instancetype)initWithData:(NSData*)data {
-    return [self initWithData:data showFirstPass:YES];
-}
-
--(instancetype)initWithData:(NSData*)data showFirstPass:(BOOL)showFirstPass {
     self = [super init];
     if (self) {
         self.data = data;
-        self.showFirstPass = showFirstPass;
-
         // Initially set here, but overriden once decompression starts
         _isLoadingProgressiveJPEG = NO;
+        _currentScan = 0;
 
         if (self.data) {
             [self initializeDecompression];
@@ -113,7 +107,6 @@ METHODDEF(void) my_output_message(j_common_ptr cinfo) { }
     }
     return self;
 }
-
 #pragma mark -
 
 -(void)initializeDecompression {
@@ -214,6 +207,7 @@ METHODDEF(void) my_output_message(j_common_ptr cinfo) { }
         if (jpeg_input_complete(&self->info) && (self->info.input_scan_number == self->info.output_scan_number)) {
             self.done = YES;
             [self finishDecompression];
+            self.currentScan = self->info.output_scan_number;
             return CCDecodingStatusFinished;
         }
 
@@ -254,10 +248,10 @@ METHODDEF(void) my_output_message(j_common_ptr cinfo) { }
 #else
 -(NSImage*)toImage {
 #endif
-    if (!self->info.output_scanline
-        || (!self.showFirstPass && self->info.input_scan_number == 1)) {
+    if (!self->info.output_scanline) {
         return nil;
     }
+    NSLog(@"Rendering scan %d", self->info.input_scan_number);
 
     CGFloat width = self->info.output_width;
     CGFloat height = self->info.output_height;
@@ -335,6 +329,29 @@ METHODDEF(void) my_output_message(j_common_ptr cinfo) { }
     free(pixels);
 
     return image;
+}
+
+#if TARGET_OS_IPHONE
+-(UIImage*)toImageWithScan:(int)scan {
+#else
+-(NSImage*)toImageWithScan:(int)scan {
+#endif
+    // Return data early if you're not doing progressive.
+    if (!self.isLoadingProgressiveJPEG) {
+        return [self toImage];
+    }
+
+    // If you get a negative or zero, the first chunk will load. Always ensure this is at least 1 if using this mode
+    int validScanState = scan <= 0 ? 1 : scan;
+
+    if (self->info.input_scan_number == validScanState) {
+        NSLog(@"Skipping becuse current scan is %d and input scan is %d", self->info.input_scan_number, validScanState);
+        return nil;
+    }
+
+    NSLog(@"Input scan was scan %d", validScanState);
+
+    return [self toImage];
 }
 
 @end
