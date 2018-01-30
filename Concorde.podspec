@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Concorde"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "Download and decode progressive JPEGs easily."
   s.homepage         = "https://github.com/contentful-labs/Concorde/"
   s.social_media_url = 'https://twitter.com/contentful'
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
                      :tag => s.version.to_s }
   s.requires_arc = true
 
-  s.ios.deployment_target     = '8.0'
+  s.ios.deployment_target     = '10.0'
   s.ios.frameworks            = 'UIKit'
   s.osx.deployment_target     = '10.9'
 

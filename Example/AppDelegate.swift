@@ -13,9 +13,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window!.backgroundColor = UIColor.whiteColor()
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window!.backgroundColor = UIColor.white
         self.window!.rootViewController = UIViewController()
         self.window!.makeKeyAndVisible()
 
@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         nonProgressiveImageView.frame.size.width /= 2
         self.window!.rootViewController!.view.addSubview(nonProgressiveImageView)
 
-        if let url = NSURL(string: "http://pooyak.com/p/progjpeg/jpegload.cgi?o=0") {
+        if let url = URL(string: "http://pooyak.com/p/progjpeg/jpegload.cgi?o=0") {
             nonProgressiveImageView.load(url)
         }
 
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         progressiveImageView.frame.size.width /= 2
         self.window!.rootViewController!.view.addSubview(progressiveImageView)
 
-        if let url = NSURL(string: "http://www.pooyak.com/p/progjpeg/jpegload.cgi?o=1") {
+        if let url = URL(string: "http://www.pooyak.com/p/progjpeg/jpegload.cgi?o=1") {
             progressiveImageView.load(url)
         }
 
