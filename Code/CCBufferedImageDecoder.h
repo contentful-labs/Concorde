@@ -56,7 +56,7 @@ typedef NS_ENUM(NSInteger, CCDecodingStatus){
 #if TARGET_OS_IPHONE
 -(UIImage* _Nullable)toImage;
 #else
--(NSImage*)toImage;
+-(NSImage* _Nullable)toImage;
 #endif
 
 /**
@@ -73,7 +73,7 @@ typedef NS_ENUM(NSInteger, CCDecodingStatus){
 #if TARGET_OS_IPHONE
 -(UIImage* _Nullable)toImageWithScan:(int)scan;
 #else
--(NSImage*)toImage;
+-(NSImage* _Nullable)toImageWithScan:(int)scan;
 #endif
 
 @end
