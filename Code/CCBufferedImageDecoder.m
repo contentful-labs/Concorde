@@ -251,7 +251,6 @@ METHODDEF(void) my_output_message(j_common_ptr cinfo) { }
     if (!self->info.output_scanline) {
         return nil;
     }
-    NSLog(@"Rendering scan %d", self->info.input_scan_number);
 
     CGFloat width = self->info.output_width;
     CGFloat height = self->info.output_height;
@@ -345,11 +344,8 @@ METHODDEF(void) my_output_message(j_common_ptr cinfo) { }
     int validScanState = scan <= 0 ? 1 : scan;
 
     if (self->info.input_scan_number == validScanState) {
-        NSLog(@"Skipping becuse current scan is %d and input scan is %d", self->info.input_scan_number, validScanState);
         return nil;
     }
-
-    NSLog(@"Input scan was scan %d", validScanState);
 
     return [self toImage];
 }
