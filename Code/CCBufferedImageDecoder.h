@@ -27,6 +27,11 @@ typedef NS_ENUM(NSInteger, CCDecodingStatus){
 /** Decoder for JPEG images */
 @interface CCBufferedImageDecoder : NSObject
 
+/** Indicates whether the JPEG being decoded is progressive **/
+@property (nonatomic) BOOL isLoadingProgressiveJPEG;
+/** The scan that is currently decoding **/
+@property (nonatomic) int currentScan;
+
 /**
  *  Decompress the next pass in buffered mode.
  *
@@ -51,7 +56,24 @@ typedef NS_ENUM(NSInteger, CCDecodingStatus){
 #if TARGET_OS_IPHONE
 -(UIImage* _Nullable)toImage;
 #else
--(NSImage*)toImage;
+-(NSImage* _Nullable)toImage;
+#endif
+
+/**
+ *  Convert the result RGB data to an image instance, only if the current scan being processed
+ *  is greater than the scan provided. Use currentScan to get the scan being processed after decompressing.
+ *
+ *  Using this method will result in the image loading by every full-frame pass, rather than line by line.
+ *  It will guarantee you will always show a full-frame image rather than a partially downloaded image.
+ *
+ *  @param scan The last scan processed
+ *
+ *  @return An image instance for use in Cocoa.
+ */
+#if TARGET_OS_IPHONE
+-(UIImage* _Nullable)toImageWithScan:(int)scan;
+#else
+-(NSImage* _Nullable)toImageWithScan:(int)scan;
 #endif
 
 @end
