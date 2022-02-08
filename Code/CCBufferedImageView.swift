@@ -9,14 +9,14 @@
 import UIKit
 
 /// A subclass of UIImageView which displays a JPEG progressively while it is downloaded
-open class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
-    fileprivate weak var connection: NSURLConnection?
-    fileprivate let defaultContentLength = 5 * 1024 * 1024
-    fileprivate var data: Data?
-    fileprivate let queue = DispatchQueue(label: "com.contentful.Concorde", attributes: [])
+public class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
+    private weak var connection: NSURLConnection?
+    private let defaultContentLength = 5 * 1024 * 1024
+    private var data: NSMutableData?
+    private let queue = DispatchQueue(label: "com.contentful.Concorde")
 
     /// Optional handler which is called after an image has been successfully downloaded
-    open var loadedHandler: (() -> ())?
+    public var loadedHandler: (() -> ())?
 
     deinit {
         connection?.cancel()
@@ -30,48 +30,51 @@ open class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
     }
 
     /// Initialize a new image view and start loading a JPEG from the given URL
-    public init(URL: Foundation.URL) {
+    public init(URL: URL) {
         super.init(image: nil)
 
-        backgroundColor = UIColor.gray
-        load(URL)
+        backgroundColor = .gray
+        load(URL: URL)
     }
 
     /// Required initializer, not implemented
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        backgroundColor = UIColor.gray
+        backgroundColor = .gray
     }
 
     /// Load a JPEG from the given URL
-    open func load(_ URL: Foundation.URL) {
+    public func load(URL: URL) {
         connection?.cancel()
-        connection = NSURLConnection(request: URLRequest(url: URL), delegate: self)
+        connection = NSURLConnection(request: NSURLRequest(url: URL as URL) as URLRequest, delegate: self)
     }
 
     // MARK: NSURLConnectionDataDelegate
 
     /// see NSURLConnectionDataDelegate
-    open func connection(_ connection: NSURLConnection, didFailWithError error: Error) {
-        NSLog("Error: \(error)")
+    public func connection(connection: NSURLConnection, didFailWithError error: NSError) {
+        NSLog("Error: %@", error)
     }
 
     /// see NSURLConnectionDataDelegate
-    open func connection(_ connection: NSURLConnection, didReceive data: Data) {
-        self.data?.append(data)
+    public func connection(connection: NSURLConnection, didReceiveData data: NSData) {
+        self.data?.append(data as Data)
 
-        queue.sync {
-            let decoder = CCBufferedImageDecoder(data: self.data! as Data)
+        queue.sync() {
+            let decoder = CCBufferedImageDecoder(data: self.data as Data?)
             decoder?.decompress()
             
             guard let decodedImage = decoder?.toImage() else {
                 return
             }
             
-            UIGraphicsBeginImageContext(CGSize(width: 1,height: 1))
+            UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
             let context = UIGraphicsGetCurrentContext()
-            context?.draw(decodedImage.cgImage!, in: CGRect(x: 0, y: 0, width: 1, height: 1))
+
+            context?.draw(decodedImage.cgImage!,
+                          in: CGRect(x: 0, y: 0, width: 1, height: 1))
+
             UIGraphicsEndImageContext()
 
             DispatchQueue.main.async {
@@ -81,17 +84,17 @@ open class CCBufferedImageView : UIImageView, NSURLConnectionDataDelegate {
     }
 
     /// see NSURLConnectionDataDelegate
-    open func connection(_ connection: NSURLConnection, didReceive response: URLResponse) {
+    public func connection(connection: NSURLConnection, didReceiveResponse response: URLResponse) {
         var contentLength = Int(response.expectedContentLength)
         if contentLength < 0 {
             contentLength = defaultContentLength
         }
 
-        data = Data(capacity: contentLength)
+        data = NSMutableData(capacity: contentLength)
     }
 
     /// see NSURLConnectionDataDelegate
-    open func connectionDidFinishLoading(_ connection: NSURLConnection) {
+    public func connectionDidFinishLoading(connection: NSURLConnection) {
         data = nil
 
         if let loadedHandler = loadedHandler {
